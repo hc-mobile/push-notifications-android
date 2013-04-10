@@ -1,4 +1,3 @@
-register.php
 <?php
  
 // response json
@@ -8,12 +7,15 @@ $json = array();
  * Registering a user device
  * Store reg id in users table
  */
+echo 'xxxx';
 if (isset($_POST["note"])) {
 
-    $registatoin_ids = "wait for gcm to respond";
-    $message = "ola k ase";
- 
-     $gcm = new GCM();
+    $regId = "APA91bF3C77zE3wd8u1XUYyxV3HgX4w5mE-yQ0XVpurBBFzKq4h2xs84VrDmNUfdjaciGf3rNOARHy45HeLQ8hKrFHpz3KtmEZLOqeg_uegVhHpeB063Tzeql-npPP7YNZvgJ-WpBDuLUqA-JjqFC88pWC8bNJUrBNVoOh7m2wb1bhH_rqzz46E";
+    $registatoin_ids = array($regId);
+    $gcm = new GCM();
+
+    $message = array("product" => "shirt");
+    echo $registatoin_ids;
     $result = $gcm->send_notification($registatoin_ids, $message);
  
     echo $result;
@@ -38,7 +40,7 @@ class GCM {
      */
     public function send_notification($registatoin_ids, $message) {
         // include config
-        include_once './config.php';
+        // include_once './config.php';
  
         // Set POST variables
         $url = 'https://android.googleapis.com/gcm/send';
@@ -49,8 +51,8 @@ class GCM {
         );
  
         $headers = array(
-            'Authorization: key=' . AIzaSyB7Aqqqgop2_ee4DD709_3Vz_A9Vy96wBE,
-            'Content-Type: plain/text'
+            'Authorization: key=' . 'AIzaSyB7Aqqqgop2_ee4DD709_3Vz_A9Vy96wBE',
+            'Content-Type: application/json'
         );
         // Open connection
         $ch = curl_init();
@@ -79,5 +81,4 @@ class GCM {
     }
  
 }
- 
 ?>
