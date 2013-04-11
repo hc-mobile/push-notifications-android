@@ -114,9 +114,10 @@
                                 <div class="clear"></div>
                                 <label>Email:</label> <span><?php echo $row["email"] ?></span>
                                 <div class="clear"></div>
+                                <label>Email:</label> <span><?php echo $row["gcm_regid"] ?></span>
+                                <div class="clear"></div>
                                 <div class="send_container">
-                                    <textarea rows="3" name="message" cols="25" class="txt_message" placeholder="Type message here">server 127.0.0.1 has unexpectedly shut down
-                                    </textarea>
+                                    <textarea rows="3" name="message" cols="25" class="txt_message" placeholder="Type message here">server 127.0.0.1 has unexpectedly shut down</textarea>
                                     <input name="alertId"/>
                                     <input type="hidden" name="regId" value="<?php echo $row["gcm_regid"] ?>"/>
                                     <input type="submit" class="send_btn" value="Send" onclick=""/>
