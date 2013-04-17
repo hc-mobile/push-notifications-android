@@ -1,5 +1,5 @@
 <?php
-include_once 'config.local.php';
+
 /**
  * Database config variables
  */
